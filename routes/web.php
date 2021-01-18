@@ -23,10 +23,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-
-
-
-
 //Route::get('/areas', [App\Http\Controllers\AreasController::class, 'index'])->name('home');
 
 /* Maintenance */
