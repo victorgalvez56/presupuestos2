@@ -19,7 +19,6 @@ class BudgetsController extends Controller
         ->where('batchs.status','=','available')
             ->select('batchs.*')
             ->get()->toArray();
-
         return view('budgets.index', compact('months','batchs'));
     }
 
@@ -33,22 +32,20 @@ class BudgetsController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
 
+        // $user = new User([
+        //     'name' => $request->get('name'),
+        //     'email' => $request->get('email'),
+        //     'password' => $request->get('password'),
+        //     'role_id' => $request->get('role_id')
+        // ]);
+        // if($user->save()){
+        //     return redirect('users')->with('success', 'Prespuesto Guardado!');
 
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-            'role_id'=>'required',
-        ]);
-        $user = new User([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => $request->get('password'),
-            'role_id' => $request->get('role_id')
-        ]);
-        $user->save();
-        return redirect('users')->with('success', 'Usuario Guardado!');
+        // }else{
+        //     echo "no se guardó";
+        // }
 
     }
 

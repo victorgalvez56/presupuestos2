@@ -18,7 +18,7 @@ class AreasController extends Controller
      */
     public function index()
     {
-        $this->authorize('have_access', 'areas.index');
+        // $this->authorize('have_access', 'areas.index');
 
         $areas = AreasModel::all();
 

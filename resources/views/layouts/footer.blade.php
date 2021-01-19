@@ -46,16 +46,14 @@
     $(document).on("click", "#delete_row_budgets", function () {
         $(this).closest("tr").remove();
     });
-
     $(document).on("click", "#add_row_budgets", function () {
-
         html = "<tr class='row_add'>";
         html += "<td>" + " <select name='month_id[]' class='form-control' required><option value=''>Seleccione mes</option>@foreach($months as $month)<option value='{{$month->id}}'>{{$month->name}}</option>@endforeach</select></td>";
-        html += "<td>" + "  <input type='number'  name='quantity[]' class='form-control quantity' value=''   placeholder='Ingrese cantidad' step='0.01 required></td>";
+        html += "<td>" + "  <input type='number'  name='quantity[]' class='form-control quantity' value=''   placeholder='Ingrese cantidad' step='0.01' required></td>";
         html += "<td>" + " <textarea type='text' name='description[]' class='form-control' value='' placeholder='Ingrese descripción' required></textarea></td>";
         html += "<td>" + " <select name='batch_id[]' class='form-control' required>  value=''  <option value=''>Seleccione área</option> @foreach($batchs as $batch)<option value='{{$batch['id']}}'>{{$batch['name']}}</option> @endforeach</select></td>";
-        html += "<td>" + "<input type='text' name='unit_price[]' class='form-control unit_price' value='' placeholder='S/. 00.00' step='0.01 required></td>";
-        html += "<td>" + "<input type='text' name='total_soles[]' class='form-control' value='' placeholder='S/. 00.00' step='0.01 required readonly></td>";
+        html += "<td>" + "<input type='text' name='unit_price[]' class='form-control unit_price' value='' placeholder='S/. 00.00' step='0.01' required></td>";
+        html += "<td>" + "<input type='text' name='total_soles[]' class='form-control' value='' placeholder='S/. 00.00' step='0.01' required readonly></td>";
         html += "<td>" + "<input type='text' name='total_dollars[]' class='form-control' value='' placeholder='$. 00.00'  step='0.01' required readonly></td>";
         html += "<td>" + " <button class='btn btn-danger' id='delete_row_budgets'><span class='fas fa-minus'></span></button></td>";
         html += "</tr>";

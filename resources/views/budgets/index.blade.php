@@ -179,7 +179,7 @@
                 <div class="modal-content">
                     <div class="card-header">
                         <h3 class="card-title">Registrar presupuesto
-                            <button class="btn btn-success"
+                            <button type="button" class="btn btn-success"
                                     id="add_row_budgets"
                             ><span class="fas fa-plus"></span>
                             </button>
@@ -269,6 +269,9 @@
                 <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
+<script>
+
+</script>
 
 @section('footer')
     @include('layouts.footer')

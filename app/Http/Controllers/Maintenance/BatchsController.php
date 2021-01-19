@@ -21,7 +21,6 @@ class BatchsController extends Controller
             ->orderby('batchs.status', 'desc')
             ->select('batchs.*', 'areas.name as name_area')
             ->get();
-
         return view('maintenance.batchs.index', compact('batchs'));
     }
 
