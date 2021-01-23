@@ -15,7 +15,10 @@ class MenusTableSeeder extends Seeder
     public function run()
     {
         MenusModel::create(['name' => 'Dashboard', 'link' => 'home']);
-        MenusModel::create(['name' => 'Areas', 'link' => 'areas']);
+        MenusModel::create(['name' => 'Areas', 'link' => 'areas.index']);
+        MenusModel::create(['name' => 'Areas', 'link' => 'areas.create']);
+        MenusModel::create(['name' => 'Areas', 'link' => 'areas.edit']);
+        MenusModel::create(['name' => 'Areas', 'link' => 'areas.delete']);
         MenusModel::create(['name' => 'Batchs', 'link' => 'batchs']);
         MenusModel::create(['name' => 'Users', 'link' => 'users']);
 

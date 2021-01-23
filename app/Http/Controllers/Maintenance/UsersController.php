@@ -12,6 +12,8 @@ class UsersController extends Controller
 
     public function index()
     {
+        $this->authorize('AdministradorSistema');
+
         $users = User::join('roles','users.role_id','=','roles.id')
             ->select('users.*','roles.name as name_rol')
         ->get();
@@ -22,8 +24,11 @@ class UsersController extends Controller
     {
 //        $roles = RolesModel::where('status','=','available')->get();
 //        return view('maintenance.users.create',compact('roles'));
+    $this->authorize('AdministradorSistema');
 
-        echo "create";
+
+        $roles = RolesModel::where('status','=','available')->get();
+        return view('maintenance.users.create',compact('roles'));
     }
 
     public function store(Request $request)

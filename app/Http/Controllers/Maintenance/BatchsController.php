@@ -17,6 +17,8 @@ class BatchsController extends Controller
      */
     public function index()
     {
+        $this->authorize('AdministradorSistema');
+
         $batchs = BatchsModel:: join('areas', 'areas.id', '=', 'batchs.area_id')
             ->orderby('batchs.status', 'desc')
             ->select('batchs.*', 'areas.name as name_area')
@@ -31,6 +33,8 @@ class BatchsController extends Controller
      */
     public function create()
     {
+        $this->authorize('AdministradorSistema');
+
         $areas = AreasModel::where('status','=','available')->get();
         return view('maintenance.batchs.create',compact('areas'));
     }
@@ -43,7 +47,7 @@ class BatchsController extends Controller
      */
     public function store(Request $request)
     {
-
+        $this->authorize('AdministradorSistema');
 
         $request->validate([
             'name'=>'required',
@@ -77,6 +81,8 @@ class BatchsController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('AdministradorSistema');
+
         $areas = AreasModel::where('status','=','available')->get();
         $batch = BatchsModel::find($id);
         return view('maintenance.batchs.edit', compact('batch','areas'));
@@ -91,6 +97,8 @@ class BatchsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('AdministradorSistema');
+
         $request->validate([
             'name'=>'required',
             'area_id'=>'required',
@@ -111,6 +119,8 @@ class BatchsController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('AdministradorSistema');
+
         $batch = BatchsModel::find($id);
         $batch->status = 'unavailable';
         $batch->save();
@@ -118,6 +128,8 @@ class BatchsController extends Controller
     }
     public function enable($id)
     {
+        $this->authorize('AdministradorSistema');
+
         $batch = BatchsModel::find($id);
         $batch->status = 'available';
         $batch->save();

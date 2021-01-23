@@ -41,7 +41,8 @@ class UserPolicy
     public function create(User $user)
     {
 
-        return $user->id > 0;
+        return $user->permissions()->contains('create-user');
+
     }
 
     /**
@@ -53,7 +54,8 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        //
+        return $authenticatedUser->id === $user->id || $authenticatedUser->permissions()->contains('update-user');
+
     }
 
     /**
@@ -65,7 +67,8 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        //
+        return $user->permissions()->contains('delete-user');
+
     }
 
     /**

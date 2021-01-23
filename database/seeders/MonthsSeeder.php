@@ -14,6 +14,7 @@ class MonthsSeeder extends Seeder
      */
     public function run()
     {
+
         MonthsModel::create(['name' => 'Enero', 'date_start' => '2000/01/01', 'date_end' => '2000/01/31']);
         MonthsModel::create(['name' => 'Febrero', 'date_start' => '2000/02/01', 'date_end' => '2000/02/29']);
         MonthsModel::create(['name' => 'Marzo', 'date_start' => '2000/03/01', 'date_end' => '2000/03/31']);

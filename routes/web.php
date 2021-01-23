@@ -43,3 +43,5 @@ Route::post('users/enable/{id}', 'App\Http\Controllers\Maintenance\UsersControll
 
 /* Resource Budgets*/
 Route::resource('budgets', App\Http\Controllers\Budgets\BudgetsController::class);
+Route::post('budgets/year', 'App\Http\Controllers\Budgets\BudgetsController@show_by_year')->name('show_by_year');
+Route::get('budgets/{year}/{month}', 'App\Http\Controllers\Budgets\BudgetsController@show_by_year_month')->name('show_by_year_month');

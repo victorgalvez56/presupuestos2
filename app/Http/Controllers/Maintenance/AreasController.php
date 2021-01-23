@@ -18,7 +18,7 @@ class AreasController extends Controller
      */
     public function index()
     {
-        // $this->authorize('have_access', 'areas.index');
+        $this->authorize('AdministradorSistema');
 
         $areas = AreasModel::all();
 
@@ -35,7 +35,9 @@ class AreasController extends Controller
      */
     public function create()
     {
-        $this->authorize('have_access', 'areas.create');
+        $this->authorize('AdministradorSistema');
+
+        $this->authorizeResource('have_access', 'areas.create');
 
         $representatives = User::where('status', '=', 'available')->get();
         return view('maintenance.areas.create', compact('representatives'));
@@ -49,7 +51,7 @@ class AreasController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('have_access', 'areas.store');
+        $this->authorize('AdministradorSistema');
 
         $request->validate([
             'name' => 'required',
@@ -74,7 +76,7 @@ class AreasController extends Controller
      */
     public function show($id)
     {
-        $this->authorize('have_access', 'areas.show');
+        $this->authorize('AdministradorSistema');
 
         //
     }
@@ -87,8 +89,7 @@ class AreasController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize('have_access', 'areas.edit');
-
+        $this->authorize('AdministradorSistema');
         $area = AreasModel::find($id);
         $representatives = User::where('status', '=', 'available')->get();
         return view('maintenance.areas.edit', compact('area', 'representatives'));
@@ -103,7 +104,8 @@ class AreasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->authorize('have_access', 'areas.update');
+        $this->authorize('AdministradorSistema');
+
 
         $request->validate([
             'name' => 'required',
@@ -125,8 +127,7 @@ class AreasController extends Controller
      */
     public function destroy($id)
     {
-        $this->authorize('have_access', 'areas.delete');
-
+        $this->authorize('AdministradorSistema');
         $area = AreasModel::find($id);
         $area->status = 'unavailable';
         $area->save();
@@ -135,7 +136,7 @@ class AreasController extends Controller
 
     public function enable($id)
     {
-        $this->authorize('have_access', 'areas.enable');
+        $this->authorize('AdministradorSistema');
 
         $area = AreasModel::find($id);
         $area->status = 'available';

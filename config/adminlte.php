@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -45,8 +44,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Presupuestos</b>',
+    // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -235,29 +234,25 @@ return [
             'text' => 'Inicio',
             'route'  => 'home',
         ],
-
-//        ['header' => 'account_settings'],
-//        [
-//            'text' => 'profile',
-//            'url'  => 'admin/settings',
-//            'icon' => 'fas fa-fw fa-user',
-//        ],
-//        [
-//            'text' => 'change_password',
-//            'url'  => 'admin/settings',
-//            'icon' => 'fas fa-fw fa-lock',
-//        ],
+        [
+            'text' => 'Presupuestos',
+            'route'  => 'budgets.index',
+            'can'    => 'AdministradorSistema',
+        ],
         [
             'text'    => 'Mantenimiento',
             'icon'    => 'fas fa-fw fa-share',
+            'can'    => 'AdministradorSistema',
             'submenu' => [
                 [
-                    'text' => 'Áreas',
+                    'text'   => 'Áreas',
                     'route'  => 'areas.index',
                 ],
+
                 [
                     'text' => 'Partidas',
                     'route'  => 'batchs.index',
+
                 ],
                 [
                     'text' => 'Users',
