@@ -15,7 +15,6 @@ class CreateBudgetsTable extends Migration
     {
         Schema::create('budgets', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('price_dollar');
             $table->double('total_budget_soles');
             $table->double('total_budget_dollar');
             $table->string('status')->default('available');

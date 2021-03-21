@@ -78,7 +78,6 @@
                                                 <a href="{{ route('batchs.edit',$batch->id)}}"
                                                    class="btn btn-warning btn-lg"><span
                                                         class="fas fa-edit"></span></a>
-
                                                 <form action="{{ url('batchs/enable/'.$batch->id) }}" method="post">
                                                     @csrf
                                                     <button class="btn btn-success btn-lg" value="{{$batch->id}}"

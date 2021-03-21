@@ -16,6 +16,7 @@ class CreateTableMonths extends Migration
         Schema::create('months', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('selected')->default('');
             $table->date('date_start');
             $table->date('date_end');
             $table->string('status')->default('available');
@@ -30,6 +31,6 @@ class CreateTableMonths extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_months');
+        Schema::dropIfExists('months');
     }
 }

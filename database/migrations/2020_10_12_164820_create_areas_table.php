@@ -16,6 +16,7 @@ class CreateAreasTable extends Migration
         Schema::create('areas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('selected')->default('');
             $table->string('status')->default('available');
             $table->integer('representative_id')->unsigned();
             $table->foreign('representative_id')->references('id')->on('users')->onDelete('cascade');

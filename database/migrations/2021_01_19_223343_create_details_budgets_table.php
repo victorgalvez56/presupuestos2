@@ -15,6 +15,7 @@ class CreateDetailsBudgetsTable extends Migration
     {
         Schema::create('details_budgets', function (Blueprint $table) {
             $table->increments('id');
+            $table->double('price_dollar');
             $table->double('quantity');
             $table->string('description');
             $table->double('unit_price');

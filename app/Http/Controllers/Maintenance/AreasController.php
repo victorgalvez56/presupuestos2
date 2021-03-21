@@ -23,6 +23,7 @@ class AreasController extends Controller
         $areas = AreasModel::all();
 
         $areas = AreasModel:: join('users', 'users.id', '=', 'areas.representative_id')
+        ->orderBy('name','asc')
             ->select('areas.*', 'users.name as name_representative')
             ->get();
         return view('maintenance.areas.index', compact('areas'));

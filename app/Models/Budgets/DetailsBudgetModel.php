@@ -13,6 +13,7 @@ class DetailsBudgetModel extends Model
     protected $fillable = [
         'quantity',
         'description',
+        'price_dollar',
         'unit_price',
         'total_soles',
         'total_dollars',

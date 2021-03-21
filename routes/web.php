@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Gate;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -43,5 +43,13 @@ Route::post('users/enable/{id}', 'App\Http\Controllers\Maintenance\UsersControll
 
 /* Resource Budgets*/
 Route::resource('budgets', App\Http\Controllers\Budgets\BudgetsController::class);
+Route::get('Detailbudgets/{id}', 'App\Http\Controllers\Budgets\BudgetsController@edit_detail_budget')->name('detailsBudget.edit');
 Route::post('budgets/year', 'App\Http\Controllers\Budgets\BudgetsController@show_by_year')->name('show_by_year');
 Route::get('budgets/{year}/{month}', 'App\Http\Controllers\Budgets\BudgetsController@show_by_year_month')->name('show_by_year_month');
+
+
+Route::resource('reports', App\Http\Controllers\Reports\ReportsController::class);
+// Route::get('Detailbudgets/{id}', 'App\Http\Controllers\Budgets\BudgetsController@edit_detail_budget')->name('detailsBudget.edit');
+Route::post('reports/year', 'App\Http\Controllers\Reports\ReportsController@show_by_year')->name('reports.show_by_year');
+Route::get('reports/{year}/{month}', 'App\Http\Controllers\Reports\ReportsController@show_by_year_month')->name('reports.show_by_year_month');
+Route::get('reports/{year}/{month}/{area}', 'App\Http\Controllers\Reports\ReportsController@show_by_year_month_area')->name('reports.show_by_year_month_area');

@@ -45,11 +45,11 @@
                                 <input type="email" name="email" class="form-control"
                                        placeholder="Ingrese email" value="{{$user->email}}" required>
                             </div>
-{{--                            <div class="form-group">--}}
-{{--                                <label for="exampleInputEmail1">Password</label>--}}
-{{--                                <input type="password" name="password" class="form-control"--}}
-{{--                                       placeholder="Ingrese password" value="{{$user->password}}" required>--}}
-{{--                            </div>--}}
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <input type="password" name="password" class="form-control"--}}
+                                       placeholder="Ingrese password" value="{{$user->password}}" required>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Rol</label>
                                 <select name="role_id" class="form-control" required>

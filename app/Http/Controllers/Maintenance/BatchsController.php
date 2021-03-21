@@ -35,7 +35,7 @@ class BatchsController extends Controller
     {
         $this->authorize('AdministradorSistema');
 
-        $areas = AreasModel::where('status','=','available')->get();
+        $areas = AreasModel::where('status','=','available')->orderBy('name','asc')->get();
         return view('maintenance.batchs.create',compact('areas'));
     }
 
@@ -83,7 +83,7 @@ class BatchsController extends Controller
     {
         $this->authorize('AdministradorSistema');
 
-        $areas = AreasModel::where('status','=','available')->get();
+        $areas = AreasModel::where('status','=','available')->orderBy('name','asc')->get();
         $batch = BatchsModel::find($id);
         return view('maintenance.batchs.edit', compact('batch','areas'));
     }

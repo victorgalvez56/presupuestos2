@@ -6,14 +6,14 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Agregar Presupuestos</h1>
+                <h1>Reportes Presupuestos</h1>
             </div>
 
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
                     <li class="breadcrumb-item active">Presupuestos</li>
-                    <li class="breadcrumb-item active">Agregar</li>
+                    <li class="breadcrumb-item active">Reportes</li>
 
                 </ol>
             </div>
@@ -27,7 +27,7 @@
             <div class="col-sm-3">
                 <div class="callout callout-info">
                     <h5> Años:</h5>
-                    <form method="post" action="{{ route('show_by_year') }}">
+                    <form method="post" action="{{ route('reports.show_by_year') }}">
                         @csrf
                         <div class="input-group input-group-sm">
                             <select class="form-control" name="year">
@@ -76,15 +76,15 @@
                     <div class="card-body p-0">
                         <ul class="nav nav-pills flex-column">
                             @foreach ($months as $month)
-                                <li class="nav-item active">
-                                    <a class="nav-link months" href="{{route('show_by_year_month',['year'=>$year_selected, 'month'=> $month->name])}}"
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{{route('reports.show_by_year_month',['year'=>$year_selected, 'month'=> $month->name])}}"
                                         >{{ $month->name }}</a></ </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
-            <!-- /.col -->
+           
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header d-flex p-0">

@@ -234,10 +234,11 @@ return [
             'text' => 'Inicio',
             'route'  => 'home',
         ],
+
         [
             'text' => 'Presupuestos',
             'route'  => 'budgets.index',
-            'can'    => 'AdministradorSistema',
+            'can'    => ['ResponsableÁrea','ResponsableFinanzas']
         ],
         [
             'text'    => 'Mantenimiento',
@@ -259,7 +260,12 @@ return [
                     'route'  => 'users.index',
                 ],
             ],
-        ]
+        ],
+        [
+            'text' => 'Reportes',
+            'route'  => 'reports.index',
+            'can'    => ['ResponsableÁrea','ResponsableFinanzas']
+        ],
     ],
 
     /*
