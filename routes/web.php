@@ -53,3 +53,7 @@ Route::resource('reports', App\Http\Controllers\Reports\ReportsController::class
 Route::post('reports/year', 'App\Http\Controllers\Reports\ReportsController@show_by_year')->name('reports.show_by_year');
 Route::get('reports/{year}/{month}', 'App\Http\Controllers\Reports\ReportsController@show_by_year_month')->name('reports.show_by_year_month');
 Route::get('reports/{year}/{month}/{area}', 'App\Http\Controllers\Reports\ReportsController@show_by_year_month_area')->name('reports.show_by_year_month_area');
+
+
+Route::get('export/', 'App\Http\Controllers\Reports\ReportsController@download');
+

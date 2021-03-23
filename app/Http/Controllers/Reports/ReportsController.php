@@ -205,6 +205,10 @@ class ReportsController extends Controller
   
     }
     
+    public function download() 
+        {
+            return (new BudgetsExport(2018))->download('products.xlsx');
+        }
 }
 
 
